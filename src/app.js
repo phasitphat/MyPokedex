@@ -25,17 +25,15 @@ const Items = (props) => {
     console.log(props.pokemon) 
 
     return (
-           <table>
-            {props.pokemon.map(item => (
-                     <tr>
-                         <td><img src={item[0]} width="300" height="300"/></td>
-                         <td><p><li>{item[1]} </li>
-                                <li>{item[2]} </li>
-                                <li>{item[3]} </li></p></td>
-                     </tr>
-                )
-            )}
-        </table>
+            <ul>
+
+                {
+                    props.pokemon.map(item => (
+                     <li>{item}</li>
+                    )) 
+                }
+
+             </ul>
     )
 
 }
