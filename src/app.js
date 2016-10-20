@@ -6,8 +6,8 @@ const SearchForm = () => {
 
     return (
         <form>
-            <input type="Pokemon Name" />
-            <button type="submit"> Search </button>
+            <input type="pokemonname" />
+            <button type="search"> Search </button>
         </form>
     )
 
@@ -21,21 +21,25 @@ const Header =(props) => (
 )
 
 const Items = (props) => {
-
-    console.log(props.pokemon) 
-
+    console.log(props.Items)
     return (
-            <ul>
-
-                {
-                    props.pokemon.map(item => (
-                     <li>{item}</li>
-                    )) 
-                }
-
-             </ul>
+        <table>
+            {props.Items.map(item => (
+                     <div>
+                         <img src={item[0]} width="300" height="300"/>
+                         
+                         	 <p>
+                         	 	<li>{item[1]} </li>
+                                <li>{item[2]} </li>
+                                <li>{item[3]} </li>
+                                <li>{item[4]} </li>
+                             </p>
+                         
+                     </div>
+                )
+            )}
+        </table>
     )
-
 }
 
 const Content = (props) => (
@@ -43,7 +47,7 @@ const Content = (props) => (
     <section>
 
         <p> {props.pokemondescription} </p>
-        <Items items={props.pokemon} />
+        <Items Items={props.Items} />
 
     </section>
 
@@ -53,7 +57,7 @@ const Content = (props) => (
 const App = () => {
     const appTitle = 'MyPokedex'
     const pokemondescription = 'Pokemon in MyPokedex'
-    const pokemon = [
+    const Items = 	[
                     [ "image/Freezer.jpg","Name : Freezer", "CP : 2605" ,"Location : near Dome","IV : n/a" ],
     				[ "image/Fushigibana.jpg","Name : Fushigibana", "CP : 1625" ,"Location : near Chiang Rak","IV : n/a" ],
     				[ "image/Kamex.jpg","Name : Kamex", "CP : 1452" ,"Location : near near Sapan dow ","IV : n/a" ],
@@ -64,7 +68,7 @@ const App = () => {
                  <Header title={appTitle} />
                  <Content 
                     content={pokemondescription} 
-                    pokemon={pokemon}
+                    Items={Items}
                  />
             </section>
 
